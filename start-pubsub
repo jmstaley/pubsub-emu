@@ -5,6 +5,6 @@
 # export PUBSUB_PROJECT_ID=test-project
 # export PUBSUB_TOPICS=test:testing
 
-python create_topic.py &
+python3 create_topic.py &
 
 gcloud beta emulators pubsub start --project=${PUBSUB_PROJECT_ID} --host-port=${PUBSUB_EMULATOR_HOST}
