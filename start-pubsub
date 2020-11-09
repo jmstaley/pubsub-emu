@@ -1,3 +1,10 @@
 #!/usr/bin/env bash
 
-gcloud beta emulators pubsub start --project=test-project --host-port=0.0.0.0:8432
+# Note: env vars needed
+# export PUBSUB_EMULATOR_HOST=0.0.0.0:8432
+# export PUBSUB_PROJECT_ID=test-project
+# export PUBSUB_TOPICS=test:testing
+
+python create_topic.py &
+
+gcloud beta emulators pubsub start --project=${PUBSUB_PROJECT_ID} --host-port=${PUBSUB_EMULATOR_HOST}
