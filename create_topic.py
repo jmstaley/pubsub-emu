@@ -26,7 +26,7 @@ def is_open(ip, port):
 if __name__ == "__main__":
     project_id = os.environ["PUBSUB_PROJECT_ID"]
     # topics should be ':' separated
-    topics = os.environ["PUBSUB_TOPICS"]
+    topics = os.environ.get("PUBSUB_TOPICS", '')
 
     host, port = os.environ["PUBSUB_EMULATOR_HOST"].split(":")
 
@@ -34,6 +34,7 @@ if __name__ == "__main__":
         print("Waiting for pubsub ...")
         time.sleep(1)
 
-    for topic in topics.split(":"):
-        create_topic(project_id, topic)
-        print(f"created topic: {topic}")
+    if topics:
+        for topic in topics.split(":"):
+            create_topic(project_id, topic)
+            print(f"created topic: {topic}")
