@@ -1,3 +1,11 @@
+# Migrated to codeberg
+
+This is now archived here and moved to codeberg
+
+https://codeberg.org/jmstaley/pubsub-emu
+
+---
+
 Simple container to run gcloud pubsub emulator and automatically create topic for a single project
 
 env vars needed:
